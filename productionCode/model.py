@@ -24,6 +24,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
 import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
 
 # %% [markdown]
 # ## First load the data
@@ -69,8 +70,7 @@ print("Test length", len(X_test))
 # Now we fit the machine learning model we're going to use to our X and Y data.
 
 # %%
-model = LogisticRegression(C=1/0.1, solver="lbfgs").fit(X_train, Y_train)
-
+model = DecisionTreeClassifier(random_state=42).fit(X_train, Y_train)
 # %% [markdown]
 # ## Evaluate model
 # Now what we have a completed model we need to see how accurate it is.
